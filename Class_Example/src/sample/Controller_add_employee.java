@@ -35,40 +35,42 @@ public class Controller_add_employee {
         stage.hide();}
 
     @FXML
-    public void Submit_Click(){
+    public void Submit_Click() {
         String employee_name = Name.getText();
         String employee_dept = Dept.getText();
         String employee_type = String.valueOf(TypeBox.getValue());
         String employee_access_lvl = String.valueOf(LvlBox.getValue());
 
-    //Set up alert checks for employee entry
+        //Set up alert checks for employee entry
         //Alert tutorial from - https://o7planning.org/en/11529/javafx-alert-dialogs-tutorial
-        if (employee_name.equals("") | TypeBox.getValue() == null){
+        if (employee_name.equals("") | TypeBox.getValue() == null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("ERROR");
             alert.setHeaderText("Cannot add employee!");
             alert.setContentText("Fill out required fields!");
             alert.showAndWait();
-
-        }
-        else { if (employee_type.equals("Faculty") && employee_dept.equals("")){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("ERROR");
-            alert.setHeaderText("Cannot add new faculty!");
-            alert.setContentText("Please enter a department!");
-            alert.showAndWait();
-        }
-        else {
-            if (employee_type.equals("Staff") && LvlBox.getValue() == null) {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("Cannot add new staff!");
-                alert.setContentText("Please enter an access level!");
-                alert.showAndWait();
+        } else {
+            if (employee_type.equals("Faculty")){
+                if (employee_dept.equals("")) {
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Cannot add new faculty!");
+                    alert.setContentText("Please enter a department!");
+                    alert.showAndWait();
+                }
+            } else if (employee_type.equals("Staff")) {
+                    if (LvlBox.getValue() == null) {
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("ERROR");
+                        alert.setHeaderText("Cannot add new staff!");
+                        alert.setContentText("Please enter an access level!");
+                        alert.showAndWait();
+                    }
+                }
             }
         }
-        }
-    }
+
+
 
     @FXML
     //Populate the Employee type choice box
