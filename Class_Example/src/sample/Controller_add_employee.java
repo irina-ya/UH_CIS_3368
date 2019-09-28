@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import java.io.IOException;
+import java.util.Random;
 
 import javafx.scene.control.Alert.AlertType;
 
@@ -29,6 +30,8 @@ public class Controller_add_employee {
     public TextField Name;
     public TextField Dept;
 
+    Random rnd = new Random();
+
     @FXML public void Cancel_Click(){
         Stage stage = (Stage) Cancel.getScene().getWindow();
         stage.hide();}
@@ -40,6 +43,8 @@ public class Controller_add_employee {
         String employee_dept = Dept.getText();
         String employee_type = String.valueOf(TypeBox.getValue());
         String employee_access_lvl = String.valueOf(LvlBox.getValue());
+
+
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("sample.fxml"));
         Parent sceneFXML = loader.load();
@@ -64,7 +69,7 @@ public class Controller_add_employee {
                     alert.showAndWait();
                 } else {
                     Faculty newFaculty = new Faculty();
-                   // newFaculty.id = employee_id;
+                    newFaculty.id = rnd.nextInt(100) + rnd.nextInt(100) + rnd.nextInt(100) + rnd.nextInt(100);
                     newFaculty.name = employee_name;
                     newFaculty.type = employee_type;
                     newFaculty.department = employee_dept;
@@ -83,6 +88,14 @@ public class Controller_add_employee {
                         alert.showAndWait();
                     } else {
                         Staff newStaff = new Staff();
+                        newStaff.id = rnd.nextInt(100) + rnd.nextInt(100) + rnd.nextInt(100) + rnd.nextInt(100);
+                        newStaff.name = employee_name;
+                        newStaff.type = employee_type;
+                        newStaff.accessLevel = Integer.parseInt(employee_access_lvl);
+                        newStaff.hire();
+                        shared_variables.employeeList.add(newStaff);
+                        ctrl.employeeListView.setItems(shared_variables.employeeList);
+                        stage.hide();
                     }
                 }
             }

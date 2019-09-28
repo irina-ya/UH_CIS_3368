@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -35,6 +36,14 @@ public class Controller {
 
     @FXML
     public void DeleteButton_Click() {
+
+        if (employeeListView.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("No user is selected.");
+            alert.setContentText("Please select a user.");
+            alert.showAndWait();
+        } else
         shared_variables.employeeList.remove(employeeListView.getSelectionModel().getSelectedItem());
         employeeListView.setItems(shared_variables.employeeList);
 

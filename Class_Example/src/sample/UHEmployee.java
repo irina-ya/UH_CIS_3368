@@ -2,9 +2,11 @@ package sample;
 
 public class UHEmployee implements Employee, Human {
         public String name;
-        public String id;
+        public int id =678;
         public String type;
         public boolean isActive;
+
+
 
         @Override
         public void hire()
