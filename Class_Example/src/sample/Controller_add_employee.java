@@ -7,7 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
+//Alert tutorial from - https://o7planning.org/en/11529/javafx-alert-dialogs-tutorial
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,12 +41,33 @@ public class Controller_add_employee {
         String employee_type = String.valueOf(TypeBox.getValue());
         String employee_access_lvl = String.valueOf(LvlBox.getValue());
 
-        //System.out.println(employee_access_lvl + " " + employee_dept + " " + employee_name + " " + employee_type);
-
-        if (employee_name.equals("") | employee_type == null){
+    //Set up alert checks for employee entry
+        //Alert tutorial from - https://o7planning.org/en/11529/javafx-alert-dialogs-tutorial
+        if (employee_name.equals("") | TypeBox.getValue() == null){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Cannot add employee!");
+            alert.setContentText("Fill out required fields!");
+            alert.showAndWait();
 
         }
-
+        else { if (employee_type.equals("Faculty") && employee_dept.equals("")){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Cannot add new faculty!");
+            alert.setContentText("Please enter a department!");
+            alert.showAndWait();
+        }
+        else {
+            if (employee_type.equals("Staff") && LvlBox.getValue() == null) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot add new staff!");
+                alert.setContentText("Please enter an access level!");
+                alert.showAndWait();
+            }
+        }
+        }
     }
 
     @FXML
