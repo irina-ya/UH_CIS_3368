@@ -1,6 +1,6 @@
 package sample;
 
-public class UHEmployee implements Employee
+public class UHEmployee implements Employee, Human
 {
     public String name;
     public int id;
@@ -17,4 +17,17 @@ public class UHEmployee implements Employee
     {
         isActive = false;
     }
+
+    @Override
+    public void die() {isActive = false;
+
+    }
+
+    @Override
+    public String toString()
+    {
+        return name;
+    }
+
+
 }

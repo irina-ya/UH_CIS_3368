@@ -1,6 +1,20 @@
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="435.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+        <ListView fx:id="employeeListView" prefHeight="340.0" prefWidth="230.0" />
+   <VBox alignment="TOP_CENTER" prefHeight="435.0" prefWidth="161.0" spacing="10">
+      <children>
+
+              <Button fx:id="DeleteButton" alignment="CENTER" mnemonicParsing="false" text="Delete" textAlignment="CENTER" />
+              <Button fx:id="AddButton" alignment="CENTER" mnemonicParsing="false" onAction="#AddButton_button_action" text="Add" />
+      </children>
+   </VBox>
 
 
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+</HBox>
