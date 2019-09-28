@@ -11,7 +11,7 @@
    <VBox alignment="TOP_CENTER" prefHeight="435.0" prefWidth="161.0" spacing="10">
       <children>
 
-              <Button fx:id="DeleteButton" alignment="CENTER" mnemonicParsing="false" text="Delete" textAlignment="CENTER" />
+              <Button fx:id="DeleteButton" alignment="CENTER" mnemonicParsing="false" onAction="#DeleteButton_Click" text="Delete" textAlignment="CENTER" />
               <Button fx:id="AddButton" alignment="CENTER" mnemonicParsing="false" onAction="#AddButton_Click" text="Add" />
       </children>
    </VBox>

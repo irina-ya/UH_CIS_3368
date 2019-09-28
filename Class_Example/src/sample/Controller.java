@@ -17,23 +17,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller {
     @FXML
     public ListView<UHEmployee> employeeListView;
 
-    public ObservableList<UHEmployee> employeeList = FXCollections.observableArrayList();
-
-    @FXML
     public Button AddButton;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        employeeList = FXCollections.observableArrayList();
-        generateEmployees();
-        employeeListView.setItems(employeeList);
-
-    }
 
     @FXML
     public void AddButton_Click() throws IOException {
@@ -42,26 +30,19 @@ public class Controller implements Initializable {
         secondaryStage.setTitle("Add Employees");
         secondaryStage.setScene(new Scene(root, 345, 400));
         secondaryStage.show();
+        employeeListView.setItems(shared_variables.employeeList);
     }
 
-    private void generateEmployees() {
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                Staff newStaff = new Staff();
-                newStaff.id = i;
-                newStaff.name = "Staff " + i;
-                newStaff.hire();
-                employeeList.add(newStaff);
-            } else {
-                Faculty newFaculty = new Faculty();
-                newFaculty.id = i;
-                newFaculty.name = "Faculty " + i;
-                newFaculty.hire();
-                employeeList.add(newFaculty);
-            }
-
-
-        }
+    @FXML
+    public void DeleteButton_Click() {
+        shared_variables.employeeList.remove(employeeListView.getSelectionModel().getSelectedItem());
+        employeeListView.setItems(shared_variables.employeeList);
 
     }
 }
+
+
+
+
+
+

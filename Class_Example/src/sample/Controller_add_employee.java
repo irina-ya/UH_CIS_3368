@@ -4,11 +4,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
+import java.io.IOException;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 //Alert tutorial from - https://o7planning.org/en/11529/javafx-alert-dialogs-tutorial
@@ -16,11 +15,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class Controller_add_employee {
 
     @FXML
-    public ObservableList<UHEmployee> employeeList = FXCollections.observableArrayList();
 
     public ChoiceBox TypeBox;
     public ChoiceBox LvlBox;
@@ -35,11 +34,17 @@ public class Controller_add_employee {
         stage.hide();}
 
     @FXML
-    public void Submit_Click() {
+    public void Submit_Click() throws IOException {
+        Stage stage = (Stage) Submit.getScene().getWindow();
         String employee_name = Name.getText();
         String employee_dept = Dept.getText();
         String employee_type = String.valueOf(TypeBox.getValue());
         String employee_access_lvl = String.valueOf(LvlBox.getValue());
+
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("sample.fxml"));
+        Parent sceneFXML = loader.load();
+        Controller ctrl = (loader.getController());
+
 
         //Set up alert checks for employee entry
         //Alert tutorial from - https://o7planning.org/en/11529/javafx-alert-dialogs-tutorial
@@ -57,7 +62,18 @@ public class Controller_add_employee {
                     alert.setHeaderText("Cannot add new faculty!");
                     alert.setContentText("Please enter a department!");
                     alert.showAndWait();
-                }
+                } else {
+                    Faculty newFaculty = new Faculty();
+                   // newFaculty.id = employee_id;
+                    newFaculty.name = employee_name;
+                    newFaculty.type = employee_type;
+                    newFaculty.department = employee_dept;
+                    newFaculty.hire();
+                    shared_variables.employeeList.add(newFaculty);
+                    ctrl.employeeListView.setItems(shared_variables.employeeList);
+                    stage.hide();
+                    }
+
             } else if (employee_type.equals("Staff")) {
                     if (LvlBox.getValue() == null) {
                         Alert alert = new Alert(AlertType.INFORMATION);
