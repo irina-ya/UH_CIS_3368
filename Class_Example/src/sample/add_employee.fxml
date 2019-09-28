@@ -6,12 +6,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_add_employee">
    <children>
-      <VBox prefHeight="400.0" prefWidth="148.0" spacing="10">
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="148.0" spacing="10">
          <children>
             <Label text="Employee Name" />
             <Label text="Employee Type" />
             <Label text="Department" />
-            <Label text="Acess Level" />
+            <Label text="Access Level" />
          </children></VBox>
    </children>
 </AnchorPane>
