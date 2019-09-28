@@ -26,8 +26,8 @@
          </children></VBox>
       <HBox alignment="CENTER_LEFT" layoutX="103.0" layoutY="154.0" prefHeight="132.0" prefWidth="247.0" spacing="10">
          <children>
-            <Button mnemonicParsing="false" text="Submit" />
-            <Button mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="Submit" mnemonicParsing="false" onAction="#Submit_Click" text="Submit" />
+            <Button fx:id="Cancel" mnemonicParsing="false" onAction="#Cancel_Click" text="Cancel" />
          </children>
       </HBox>
    </children>

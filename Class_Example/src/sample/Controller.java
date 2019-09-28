@@ -19,9 +19,9 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    private ListView<UHEmployee> employeeListView;
+    public ListView<UHEmployee> employeeListView;
 
-    private ObservableList<UHEmployee> employeeList = FXCollections.observableArrayList();
+    public ObservableList<UHEmployee> employeeList = FXCollections.observableArrayList();
 
     @FXML
     public Button AddButton;
