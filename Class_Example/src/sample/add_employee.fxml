@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_add_employee">
+<AnchorPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_add_employee">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="148.0" spacing="10">
+      <VBox alignment="TOP_CENTER" prefHeight="132.0" prefWidth="148.0" spacing="10">
          <children>
             <Label text="Employee Name" />
             <Label text="Employee Type" />
             <Label text="Department" />
             <Label text="Access Level" />
          </children></VBox>
+      <VBox layoutX="148.0" prefHeight="184.0" prefWidth="247.0">
+         <children>
+            <TextField fx:id="Name" prefHeight="22.0" prefWidth="247.0" />
+            <ChoiceBox fx:id="TypeBox" onMouseClicked="#EmployeeType_Select" prefWidth="150.0" />
+            <TextField fx:id="Dept" />
+            <ChoiceBox fx:id="LvlBox" onMouseClicked="#Access_Lvl" prefHeight="31.0" prefWidth="69.0" />
+         </children></VBox>
+      <HBox alignment="CENTER_LEFT" layoutX="103.0" layoutY="154.0" prefHeight="132.0" prefWidth="247.0" spacing="10">
+         <children>
+            <Button mnemonicParsing="false" text="Submit" />
+            <Button mnemonicParsing="false" text="Cancel" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

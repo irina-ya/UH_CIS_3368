@@ -36,11 +36,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void AddButton_button_action() throws IOException {
+    public void AddButton_Click() throws IOException {
         Stage secondaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("add_employee.fxml"));
         secondaryStage.setTitle("Add Employees");
-        secondaryStage.setScene(new Scene(root, 300, 275));
+        secondaryStage.setScene(new Scene(root, 345, 400));
         secondaryStage.show();
     }
 

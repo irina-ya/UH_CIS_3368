@@ -12,7 +12,7 @@
       <children>
 
               <Button fx:id="DeleteButton" alignment="CENTER" mnemonicParsing="false" text="Delete" textAlignment="CENTER" />
-              <Button fx:id="AddButton" alignment="CENTER" mnemonicParsing="false" onAction="#AddButton_button_action" text="Add" />
+              <Button fx:id="AddButton" alignment="CENTER" mnemonicParsing="false" onAction="#AddButton_Click" text="Add" />
       </children>
    </VBox>
 
