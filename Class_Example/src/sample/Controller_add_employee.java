@@ -81,6 +81,8 @@ public class Controller_add_employee {
                         alert.setHeaderText("Cannot add new staff!");
                         alert.setContentText("Please enter an access level!");
                         alert.showAndWait();
+                    } else {
+                        Staff newStaff = new Staff();
                     }
                 }
             }
