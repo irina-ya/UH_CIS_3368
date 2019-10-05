@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox layoutX="139.0" prefHeight="88.0" prefWidth="102.0">
+         <children>
+            <TextField fx:id="FirstNumber" prefHeight="4.0" prefWidth="102.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="SecondNumber">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="6.0" layoutY="1.0" prefHeight="394.0" prefWidth="133.0">
+         <children>
+            <Label text="First Number">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label text="Second Number">
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="281.0" layoutY="2.0" prefHeight="212.0" prefWidth="248.0">
+         <children>
+            <Button fx:id="Button" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#Sum" text="Calculate sum of the numbers">
+               <VBox.margin>
+                  <Insets left="15.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="LabelSum" prefHeight="21.0" prefWidth="254.0">
+               <padding>
+                  <Insets left="120.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
