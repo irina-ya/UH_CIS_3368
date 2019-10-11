@@ -47,11 +47,11 @@ public class Controller_student implements Initializable {
         student_table_data = FXCollections.observableArrayList();
 
         Connection conn = this.connect();
-        String sql_main = "SELECT * FROM Students ORDER BY Age";
+        String sql = "SELECT * FROM Students";
 
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
-            ResultSet result_set = preparedStatement.executeQuery();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet result_set = stmt.executeQuery();
             while (result_set.next()) {
                 student_table_data.add(new Student(result_set.getString(1),result_set.getInt(2)
                 , result_set.getString(3),result_set.getFloat(4)));
@@ -63,6 +63,7 @@ public class Controller_student implements Initializable {
         } catch (SQLException tableQueryException) {
             System.err.println(tableQueryException.toString());
         }
+        System.out.println("ok");
     }
 
 }
