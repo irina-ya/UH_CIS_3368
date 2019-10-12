@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="815.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UH_Cntrl.Controller_student">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UH_Cntrl.Controller_student">
    <children>
+      <ComboBox fx:id="major_filter" layoutX="513.0" layoutY="75.0" onAction="#filter_majors" prefWidth="160.0" promptText="Filter by Major..." />
       <TableView fx:id="student_tableview" prefHeight="496.0" prefWidth="359.0">
         <columns>
           <TableColumn fx:id="col_name" prefWidth="111.0" text="Name" />
@@ -16,10 +22,48 @@
             <TableColumn fx:id="col_major" prefWidth="126.0" text="Major" />
         </columns>
       </TableView>
-      <HBox layoutX="359.0" prefHeight="161.0" prefWidth="456.0">
+      <VBox layoutX="448.0" layoutY="143.0" prefHeight="137.0" prefWidth="59.0" AnchorPane.topAnchor="143.0">
          <children>
-            <JFXButton fx:id="Populate" text="Populate" />
+            <Label text="Sort by:">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" text="GPA">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label text="Age">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="497.0" layoutY="171.0" prefHeight="31.0" prefWidth="288.0">
+         <children>
+            <JFXTextField fx:id="gpa1" prefHeight="31.0" prefWidth="78.0" />
+            <Label text="to">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+            <JFXTextField fx:id="gpa2" prefHeight="31.0" prefWidth="90.0" />
          </children>
       </HBox>
+      <HBox layoutX="497.0" layoutY="212.0" prefHeight="31.0" prefWidth="288.0">
+         <children>
+            <JFXTextField fx:id="age1" prefHeight="31.0" prefWidth="78.0" />
+            <Label text="to">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+            <JFXTextField fx:id="age2" prefHeight="31.0" prefWidth="90.0" />
+         </children>
+      </HBox>
+      <Button fx:id="filter_age" layoutX="541.0" layoutY="304.0" mnemonicParsing="false" onAction="#filter_age" text="Filter by Age" />
+      <Button fx:id="filter_gpa" layoutX="540.0" layoutY="265.0" mnemonicParsing="false" onAction="#filter_gpa" text="Filter by GPA" />
    </children>
 </AnchorPane>
