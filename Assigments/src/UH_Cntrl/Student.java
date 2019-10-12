@@ -11,16 +11,16 @@ public class Student {
 
     public StringProperty nameProperty() {return name;}
     public IntegerProperty ageProperty() {return age;}
-    public FloatProperty gpaProperty() {return GPA;}
     public StringProperty majorProperty() {return major;}
-
+    public FloatProperty gpaProperty() {return GPA;}
 
     private final StringProperty name = new SimpleStringProperty();
     private final IntegerProperty age = new SimpleIntegerProperty();
-    private final StringProperty major = new SimpleStringProperty();
     private final FloatProperty GPA = new SimpleFloatProperty();
+    private final StringProperty major = new SimpleStringProperty();
 
-    public Student(String name1, int age1, String major1, float gpa1) {
+
+    public Student(String name1, int age1, float gpa1, String major1) {
         name.set(name1);
         age.set(age1);
         GPA.set(gpa1);
