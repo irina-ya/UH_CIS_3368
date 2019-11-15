@@ -50,7 +50,7 @@ public class Controller_student implements Initializable  {
         try {
             conn = DriverManager.getConnection(url);
             conn.setAutoCommit(false);
-            System.out.println("Irina - you should have remembered this processes better :(");
+            System.out.println("You should have remembered this processes better :(");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

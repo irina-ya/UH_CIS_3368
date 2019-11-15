@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="387.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UH_Cntrl.Controller_add_employee">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="402.0" layoutY="6.0" prefHeight="132.0" prefWidth="148.0" spacing="10">
+         <children>
+            <Label text="Employee Name" />
+            <Label text="Employee Type" />
+            <Label text="Department" />
+            <Label text="Access Level" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding></VBox>
+      <VBox layoutX="550.0" prefHeight="184.0" prefWidth="247.0">
+         <children>
+            <TextField fx:id="Name" prefHeight="22.0" prefWidth="247.0" />
+            <ChoiceBox fx:id="TypeBox" onMouseClicked="#EmployeeType_Select" prefWidth="150.0" />
+            <TextField fx:id="Dept" />
+            <ChoiceBox fx:id="LvlBox" onMouseClicked="#Access_Lvl" prefHeight="31.0" prefWidth="69.0" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding></VBox>
+      <HBox alignment="CENTER_LEFT" layoutX="494.0" layoutY="167.0" prefHeight="132.0" prefWidth="216.0" spacing="10">
+         <children>
+            <Button fx:id="Submit" mnemonicParsing="false" onAction="#Submit_Click" text="Submit" />
+            <Button fx:id="Cancel" mnemonicParsing="false" onAction="#Cancel_Click" text="Cancel" />
+            <Button fx:id="Delete" mnemonicParsing="false" onAction="#DeleteButton_Click" text="Delete" />
+         </children>
+      </HBox>
+      <ListView fx:id="employeeListView" layoutX="4.0" layoutY="3.0" prefHeight="374.0" prefWidth="411.0" />
+   </children>
+</AnchorPane>
